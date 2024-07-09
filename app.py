@@ -73,7 +73,7 @@ selected = option_menu(None, ["Home", "About"], icons=['house', 'info-circle'],
     menu_icon="cast", default_index=0, orientation="horizontal")
 
 if selected == "Home":
-    st.title('Diabetes Risk Prediction App')
+    st.title('Diabetes Risk Prediction App 🩺')
 
     # Main content
     df = load_data()
@@ -118,7 +118,7 @@ if selected == "Home":
             st.success(f'Prediction: Negative (Risk: {probability:.2%})')
 
 elif selected == "About":
-    st.title('About the Diabetes Risk Prediction Application')
+    st.title('About the Diabetes Risk Prediction Application 🩺')
     st.write("""
         ## Overview
         This application utilizes advanced machine learning algorithms to predict the risk of diabetes based on medical data. It provides a user-friendly interface for both healthcare professionals and individuals to assess diabetes risk quickly and accurately.
