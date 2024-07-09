@@ -164,7 +164,7 @@ elif selected == "About":
         5. Open your web browser and go to `http://localhost:8501` to view the app.
 
         ## Data Source
-        The app uses the 'diabetes_data_upload.csv' dataset. Ensure this file is present in the same directory as the script.
+        The app uses the Early stage diabetes risk prediction dataset from the UCI Machine Learning Repository. Here is the [link to the dataset](https://archive.ics.uci.edu/dataset/529/early+stage+diabetes+risk+prediction+dataset).
 
         ## Author
         - **Name:** Abdellatif Laghjaj
