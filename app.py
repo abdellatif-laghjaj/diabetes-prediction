@@ -11,6 +11,7 @@ from sklearn.svm import SVC
 from sklearn.neighbors import KNeighborsClassifier
 import plotly.express as px
 import plotly.graph_objects as go
+from streamlit_option_menu import option_menu
 
 # Function to load data
 @st.cache_data
@@ -60,39 +61,54 @@ def visualize_results(results):
     st.plotly_chart(fig)
 
 # Streamlit App
-st.sidebar.title('Options de Prédiction')
-algorithm = st.sidebar.selectbox('Choisissez un modèle', ('Logistic Regression', 'Decision Tree', 'Random Forest', 'SVM', 'KNN'))
-show_real_time_predictions = st.sidebar.checkbox('Afficher les prédictions en temps réel')
+selected = option_menu(None, ["Home", "About"], icons=['house', 'info-circle'], menu_icon="cast", default_index=0, orientation='horizontal')
 
-st.title('Prédiction du Risque de Diabète')
+if selected == "Home":
+    st.sidebar.title('Options de Prédiction')
+    algorithm = st.sidebar.selectbox('Choisissez un modèle', ('Logistic Regression', 'Decision Tree', 'Random Forest', 'SVM', 'KNN'))
+    show_real_time_predictions = st.sidebar.checkbox('Afficher les prédictions en temps réel')
 
-st.write("## Chargement des Données")
-df = load_data()
-st.write("### Aperçu des Données")
-st.write(df.head())
+    st.title('Prédiction du Risque de Diabète')
 
-X, y = preprocess_data(df)
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-scaler = StandardScaler()
-X_train = scaler.fit_transform(X_train)
-X_test = scaler.transform(X_test)
+    st.write("## Chargement des Données")
+    df = load_data()
+    st.write("### Aperçu des Données")
+    st.write(df.head())
 
-results = train_models(X_train, y_train, X_test, y_test)
+    X, y = preprocess_data(df)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+    scaler = StandardScaler()
+    X_train = scaler.fit_transform(X_train)
+    X_test = scaler.transform(X_test)
 
-st.write("## Résultats des Modèles")
-visualize_results(results)
+    results = train_models(X_train, y_train, X_test, y_test)
 
-if show_real_time_predictions:
-    st.write("## Prédictions en Temps Réel")
-    model = results[algorithm]['model']
-    
-    input_data = {}
-    for column in X.columns:
-        input_data[column] = st.number_input(f'Valeur de {column}', min_value=float(X[column].min()), max_value=float(X[column].max()), value=float(X[column].mean()))
-    
-    input_df = pd.DataFrame([input_data])
-    input_df = scaler.transform(input_df)
-    
-    if st.button('Prédire'):
-        prediction = model.predict(input_df)
-        st.write(f'### Prédiction : {"Positif" if prediction[0] == 1 else "Négatif"}')
+    st.write("## Résultats des Modèles")
+    visualize_results(results)
+
+    if show_real_time_predictions:
+        st.write("## Prédictions en Temps Réel")
+        model = results[algorithm]['model']
+        
+        st.sidebar.write("### Entrer les données")
+        input_data = {}
+        for column in X.columns:
+            input_data[column] = st.sidebar.number_input(f'Valeur de {column}', min_value=float(X[column].min()), max_value=float(X[column].max()), value=float(X[column].mean()))
+        
+        input_df = pd.DataFrame([input_data])
+        input_df = scaler.transform(input_df)
+        
+        if st.sidebar.button('Prédire'):
+            prediction = model.predict(input_df)
+            st.write(f'### Prédiction : {"Positif" if prediction[0] == 1 else "Négatif"}')
+
+elif selected == "About":
+    st.title('À propos')
+    st.write("""
+        ## Application de Prédiction du Risque de Diabète
+        Cette application utilise des algorithmes de machine learning pour prédire le risque de diabète basé sur des données médicales.
+        
+        ### Auteur
+        - **Nom:** Abdellatif Laghjaj
+        - **Github:** [github.com/abdellatif-laghjaj](https://github.com/abdellatif-laghjaj)
+    """)
