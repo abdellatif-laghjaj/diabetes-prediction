@@ -9,6 +9,7 @@ This application utilizes advanced machine learning algorithms to predict the ri
 - **Link:** [https://diabetes-prediction-exam.streamlit.app/](https://diabetes-prediction-exam.streamlit.app/)
 
 ## Screenshots
+![Sketch](screenshots/sketch.png)
 ![Image 1](screenshots/img_1.png)
 ![Image 2](screenshots/img_2.png)
 
