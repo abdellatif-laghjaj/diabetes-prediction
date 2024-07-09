@@ -141,8 +141,8 @@ elif selected == "About":
 
         1. Clone the repository:
            ```
-           git clone https://github.com/abdellatif-laghjaj/diabetes-prediction-app.git
-           cd diabetes-prediction-app
+           git clone git@github.com:abdellatif-laghjaj/diabetes-prediction.git
+           cd diabetes-prediction
            ```
 
         2. Create a virtual environment (optional but recommended):
