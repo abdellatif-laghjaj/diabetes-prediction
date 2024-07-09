@@ -123,6 +123,10 @@ elif selected == "About":
         ## Overview
         This application utilizes advanced machine learning algorithms to predict the risk of diabetes based on medical data. It provides a user-friendly interface for both healthcare professionals and individuals to assess diabetes risk quickly and accurately.
 
+        ## Author
+        - **Name:** Abdellatif Laghjaj
+        - **Github:** [github.com/abdellatif-laghjaj](https://github.com/abdellatif-laghjaj)
+
         ## Key Features
         1. **Multi-Model Comparison**: The app benchmarks multiple machine learning models including Logistic Regression, Decision Tree, Random Forest, SVM, and KNN.
         2. **Automated Best Model Selection**: It automatically selects the best-performing model for predictions, ensuring optimal accuracy.
@@ -165,11 +169,4 @@ elif selected == "About":
 
         ## Data Source
         The app uses the Early stage diabetes risk prediction dataset from the UCI Machine Learning Repository. Here is the [link to the dataset](https://archive.ics.uci.edu/dataset/529/early+stage+diabetes+risk+prediction+dataset).
-
-        ## Author
-        - **Name:** Abdellatif Laghjaj
-        - **Github:** [github.com/abdellatif-laghjaj](https://github.com/abdellatif-laghjaj)
-
-        ## Feedback and Contributions
-        Your feedback and contributions are welcome! Please feel free to submit issues or pull requests on the GitHub repository.
     """)
