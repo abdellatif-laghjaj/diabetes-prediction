@@ -92,8 +92,8 @@ if selected == "Home":
     best_model_name = max(results, key=lambda x: results[x]['accuracy'])
     best_model = results[best_model_name]['model']
 
-    st.write(f"## Best Performing Model: {best_model_name}")
-    st.write(f"Accuracy: {results[best_model_name]['accuracy']:.2%}")
+    st.markdown('<h1>Best Model: <span style="color:#508D4E">{}</span></h1>'.format(best_model_name), unsafe_allow_html=True)
+    st.success(f"Accuracy: {results[best_model_name]['accuracy']:.2%}")
 
     # Sidebar for real-time predictions
     st.sidebar.title('Real-time Prediction')
