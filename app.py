@@ -100,7 +100,12 @@ if selected == "Home":
         
         if st.sidebar.button('Prédire'):
             prediction = model.predict(input_df)
-            st.write(f'### Prédiction : {"Positif" if prediction[0] == 1 else "Négatif"}')
+
+            # If positive make it green, else make it red
+            if prediction[0] == 1:
+                st.success('### Prédiction : Positif')
+            else:
+                st.error('### Prédiction : Négatif')
 
 elif selected == "About":
     st.title('À propos')
