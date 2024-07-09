@@ -5,6 +5,14 @@ This application utilizes advanced machine learning algorithms to predict the ri
 - **Name:** Abdellatif Laghjaj
 - **Github:** [github.com/abdellatif-laghjaj](https://github.com/abdellatif-laghjaj)
 
+## Demo
+- **Link:** [https://diabetes-prediction-exam.streamlit.app/](https://diabetes-prediction-exam.streamlit.app/)
+
+## Screenshots
+![Image 1](screenshots/img_1.png)
+![Image 2](screenshots/img_2.png)
+
+
 ## Key Features
 1. **Multi-Model Comparison**: The app benchmarks multiple machine learning models including Logistic Regression, Decision Tree, Random Forest, SVM, and KNN.
 2. **Automated Best Model Selection**: It automatically selects the best-performing model for predictions, ensuring optimal accuracy.
